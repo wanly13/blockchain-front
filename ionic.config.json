@@ -1,0 +1,7 @@
+{
+  "name": "block-chain-app",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
