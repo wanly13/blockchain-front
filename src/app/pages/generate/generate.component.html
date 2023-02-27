@@ -1,0 +1,27 @@
+<ion-header >
+  <ion-toolbar >
+    <ion-buttons slot="start" (click)="regresar()">
+      <ion-icon size="small" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title class="ion-text-center" size="small">
+      <p>GENERATES BLOCKS </p>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of items; let i = index">
+      <ion-label>Input {{i+1}}:</ion-label><br>
+      <p>Emisor</p><br>
+      <ion-input type="text" [(ngModel)]="item.emisor"></ion-input>
+      <p>Receptor</p><br>
+      <ion-input type="text" [(ngModel)]="item.receptor"></ion-input>
+      <p>Mensaje</p><br>
+      <ion-input type="text" [(ngModel)]="item.text"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-button (click)="save()">Agregar</ion-button>
+  <ion-button (click)="crearBloque()">Crear</ion-button>
+</ion-content>

@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-toolbar >
+    <br><br><br>
+
+      <!-- <div class="Logos">
+        <img class="imagen" src="assets/icon/logoblanco.png"  >
+        <ion-icon *ngIf="!show" class="usuario" name="person-circle-outline" (click)="showMenu()"></ion-icon>
+        <ion-icon *ngIf="show" class="usuario" name="person-circle-outline" (click)="QuitMenu()"></ion-icon>
+      </div> -->
+      <p class="bienvenido">Bienvenido</p>
+      <h3 class="nombreUsuario">Wanly Obregón Casique</h3>
+      <div *ngIf="show"  class="sub-menu-show">
+
+        <ion-list>
+
+
+          <ion-item style="color: #12A0BB;">
+            <ion-label (click)="modificarDatos()">Mis datos</ion-label>
+          </ion-item>
+          <ion-item style="color: #0F5876;">
+            <ion-label color="#0F5876"  >CERRAR SESIÓN</ion-label>
+          </ion-item>
+
+        </ion-list>
+
+      </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+
+  <div class="contentOpciones">
+
+    <ion-card class="generalContent2" style="border-color: #12A0BB;"  (click)="goToShow()">
+
+      <ion-row>
+        <ion-col size="3" style="display: flex;align-items: center;justify-content: center;">
+          <ion-icon name="file-tray-stacked"></ion-icon>
+          <!-- <ion-img src="assets/icon-home/reservar.svg"  >      </ion-img> -->
+        </ion-col>
+        <ion-col size="9" >
+          <div>
+            <span>SHOW BLOCKS</span>
+            <p>Realiza una vista de todos los bloques existentes.</p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+
+    <ion-card class="generalContent2" style="border-color: #EB6723;"(click)="goToAdd()">
+      <ion-row>
+        <ion-col size="3"  >
+          <ion-icon name="cloud-upload"></ion-icon>
+          <!-- <ion-img src="assets/icon-home/mis reservas.svg"  >      </ion-img> -->
+        </ion-col>
+          <ion-col size="9" >
+            <div>
+              <span>ADD BLOCKS</span>
+              <p>Transmite información de manera segura de forma encriptada.</p>
+            </div>
+          </ion-col>
+      </ion-row>
+    </ion-card>
+
+    <ion-card class="generalContent2" style="border-color: #F4A215;" (click)="goToSearch()">
+      <ion-row>
+        <ion-col size="3" >
+          <ion-icon name="search"></ion-icon>
+          <!-- <ion-img src="assets/icon-home/mis examenes.svg"  >      </ion-img> -->
+        </ion-col>
+        <ion-col size="9" >
+          <div>
+            <span>SEARCH BLOCK</span>
+            <p>Realiza una búsqueda segura de tu información ingresando tu ID.</p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+
+    <ion-card class="generalContent2" style="border-color: #38A929;" (click)="goToEdit()">
+      <ion-row>
+        <ion-col size="3" >
+          <ion-icon name="construct"></ion-icon>
+          <!-- <ion-img src="assets/icon-home/mis examenes.svg"  >      </ion-img> -->
+        </ion-col>
+        <ion-col size="9" >
+          <div>
+            <span>EDIT BLOCK</span>
+            <p>Edita tu información de manera segura, recuerda que en el proceso se dañaran todos tus transacciones .</p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+
+
+    <ion-card class="generalContent2" style="border-color: #E63A68;"  (click)="goToContact()">
+      <ion-row>
+        <ion-col size="3" >
+          <ion-icon name="terminal"></ion-icon>
+        </ion-col>
+        <ion-col size="9">
+          <div>
+            <span>GENERATE BLOCKS</span>
+            <p>Genera tus blockes aleatoriamente para poder realizar tus pruebas.</p>
+          </div>
+        </ion-col>
+
+      </ion-row>
+
+    </ion-card>
+  </div>
+
+</ion-content>

@@ -24,3 +24,41 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+ion-button{
+  font-family: 'Poppins-Bold', sans-serif;
+
+}
+ion-segment-button {
+  font-family: 'Poppins-Bold', sans-serif;
+}
+ion-card{
+  font-family: 'Poppins-Bold', sans-serif;
+}
+ion-toolbar {
+  --background: #009DBC;
+  --color: white;
+    font-family: 'Poppins-Bold', sans-serif;
+}
+
+ion-button{
+  --background: #009DBC;
+  --color: white;
+    font-family: 'Poppins-Bold', sans-serif;
+}
+@font-face {
+  font-family: 'Poppins-Bold';
+  src: url('./assets/font/Poppins-Bold.ttf');
+}
+@font-face {
+  font-family: 'Poppins-Light';
+  src: url('./assets/font/Poppins-Light.ttf') ;
+}
+@font-face {
+  font-family: 'Poppins-Medium';
+  src: url('/assets/font/Poppins-Medium.ttf') ;
+}
+
+@font-face {
+  font-family: 'Poppins-Regular';
+  src: url('/assets/font/Poppins-Regular.ttf') ;
+}

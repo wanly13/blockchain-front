@@ -1,0 +1,102 @@
+<ion-header >
+  <ion-toolbar >
+    <ion-buttons slot="start" (click)="regresar()">
+      <ion-icon size="small" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title class="ion-text-center" size="small">
+      <p>SEARCH BLOCK </p>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="containerSearch">
+    <ion-col size="9" class="search">
+      <ion-searchbar class="custom" show-clear-button="always" placeholder="Ingresa tu Hash ID" [(ngModel)]="searchEspecialidad"></ion-searchbar>
+    </ion-col>
+    <ion-col size="3" class="letter"   (click)="buscar()" >
+      <label>Buscar </label>
+    </ion-col>
+  </ion-row>
+
+  <ion-content *ngIf="boolEncontrado" class="detalle" style="--background: #EFF6F4;">
+    <div >
+      <ion-icon *ngIf="!boolModificar"  name="create-outline" (click)="modificar()" style="color: #12A0BB;text-align: right;height: 30px;width: 30px;"></ion-icon>
+      <ion-icon *ngIf="boolModificar"  name="create-outline" (click)="cancelModificar()" style="color: red;text-align: right;height: 30px;width: 30px;"></ion-icon>
+    </div>
+    <ion-card  class="card2" style="background-color: white;" *ngFor="let detalle of Encontrado">
+      <ion-item class="card2">
+        <div class="dias"><br><br>
+          <div>
+
+            <ion-note >{{detalle.transacciones.length}}</ion-note>
+            <!-- <ion-note>{{detalle.dias_tratamiento }}</ion-note> -->
+            <ion-label>mensajes <br>emitidos</ion-label>
+          </div>
+        </div>
+
+        <div class="tratamiento">
+  <br>
+          <ion-note>Hash ID:</ion-note>
+          <ion-label>{{detalle.hash}}</ion-label>
+          <ion-note>Prev Hash ID:</ion-note>
+          <ion-label>{{detalle.prevHash}}</ion-label>
+          <ion-note>Nonce:</ion-note>
+          <ion-label>{{detalle.nonce}}</ion-label>
+          <!-- <ion-note>receptor:</ion-note>
+          <ion-label> {{detalle.receptor}}</ion-label> -->
+
+        </div>
+      </ion-item>
+      <div class="vecesxdia">
+        <ion-note > Ten cuidado con la información que envías</ion-note>
+      </div>
+      <ion-item class="card3" >
+        <div class="info" >
+          <ion-note>Ver detalle</ion-note>
+        </div>
+      </ion-item>
+      <br>
+    </ion-card>
+
+    <ion-card *ngIf="boolModificar" >
+      <h1 style="font-size: .9em; text-align: center;">Transaccion a modificar</h1>
+      <ion-row>
+        <ion-col size="12">
+          <ion-card class="generalContent2" style="border-color: #12A0BB;"  >
+
+            <div>
+              <span>Emisor</span>
+              <ion-input placeholder="Ingrese el emisor" [(ngModel)]="emisor"></ion-input>
+            </div>
+          </ion-card>
+        </ion-col>
+        <ion-col size="12">
+          <ion-card class="generalContent2" style="border-color: #12A0BB;"  >
+
+            <div>
+              <span>Receptor</span>
+              <ion-input placeholder="Ingrese el receptor"  [(ngModel)]="receptor"></ion-input>
+            </div>
+          </ion-card>
+        </ion-col>
+        <ion-col size="12" >
+          <ion-card style="height: 100px!important;" class="generalContent2" style="border-color: #12A0BB;"  >
+            <div >
+              <span>Mensaje a enviar</span>
+              <ion-input placeholder="Ingrese el mensaje"  [(ngModel)]="text" ></ion-input>
+            </div>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <div style="text-align: center;">
+
+        <ion-button (click)="modified()" [disabled]="emisor==='' || receptor==='' || text===''"> MODIFICAR</ion-button>
+      </div>
+     </ion-card>
+  </ion-content>
+
+
+
+</ion-content>
+

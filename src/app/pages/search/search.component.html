@@ -1,0 +1,59 @@
+<ion-header >
+  <ion-toolbar >
+    <ion-buttons slot="start" (click)="regresar()">
+      <ion-icon size="small" name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title class="ion-text-center" size="small">
+      <p>SEARCH BLOCK </p>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row class="containerSearch">
+    <ion-col size="9" class="search">
+      <ion-searchbar class="custom" show-clear-button="always" placeholder="Ingresa tu Hash ID" [(ngModel)]="searchEspecialidad"></ion-searchbar>
+    </ion-col>
+    <ion-col size="3" class="letter"   (click)="buscar()" >
+      <label>Buscar </label>
+    </ion-col>
+  </ion-row>
+  <ion-content *ngIf="boolEncontrado" class="detalle" style="--background: #EFF6F4;">
+
+    <ion-card  class="card2" style="background-color: white;" *ngFor="let detalle of Encontrado">
+      <ion-item class="card2">
+        <div class="dias"><br><br>
+          <div>
+
+            <ion-note >{{detalle.transacciones.length}}</ion-note>
+            <!-- <ion-note>{{detalle.dias_tratamiento }}</ion-note> -->
+            <ion-label>mensajes <br>emitidos</ion-label>
+          </div>
+        </div>
+
+        <div class="tratamiento">
+  <br>
+          <ion-note>Hash ID:</ion-note>
+          <ion-label>{{detalle.hash}}</ion-label>
+          <ion-note>Prev Hash ID:</ion-note>
+          <ion-label>{{detalle.prevHash}}</ion-label>
+          <ion-note>Nonce:</ion-note>
+          <ion-label>{{detalle.nonce}}</ion-label>
+          <!-- <ion-note>receptor:</ion-note>
+          <ion-label> {{detalle.receptor}}</ion-label> -->
+
+        </div>
+      </ion-item>
+      <div class="vecesxdia">
+        <ion-note > Ten cuidado con la información que envías</ion-note>
+      </div>
+      <ion-item class="card3" >
+        <div class="info" >
+          <ion-note>Ver detalle</ion-note>
+        </div>
+      </ion-item>
+      <br>
+    </ion-card>
+  </ion-content>
+</ion-content>
+
