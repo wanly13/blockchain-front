@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { BlocksService } from 'src/app/services/blocks.service';
 
 @Component({
   selector: 'app-show',
@@ -8,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class ShowComponent implements OnInit {
   verDetalleVar : boolean = false;
+  blockes : any;
   info = [{
         "cantidad": "8",
         "tipo_informacion": "mensaje",
@@ -66,10 +68,13 @@ export class ShowComponent implements OnInit {
 
   constructor(
     private router:Router,
+    public block: BlocksService,
   ) { }
 
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getAllBlocks();
+  }
 
    regresar(){
     this.router.navigate(['home']);
@@ -84,4 +89,11 @@ export class ShowComponent implements OnInit {
     this.verDetalleVar = true;
   }
 
+  getAllBlocks(){
+    // Obtener documtos
+    this.block.getComments().subscribe(data => {
+      this.blockes = data;
+      console.log(this.blockes);
+    });
+  }
 }
